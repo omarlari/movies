@@ -1,0 +1,12 @@
+environments:
+- name: dev
+- name: production
+service:
+  name: movies
+  port: 8080
+  pathPatterns:
+  - /*
+  pipeline:
+    source:
+      provider: GitHub
+      repo: omarlari/movies
