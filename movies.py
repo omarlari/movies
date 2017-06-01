@@ -26,6 +26,16 @@ def hello():
         }
     })
 
+@app.route('/test', methods=['GET'])
+def hello():
+    return jsonify({
+        "uri": "/",
+        "subresource_uris": {
+            "names": "/test",
+            "name": "/test/<id>"
+        }
+    })
+
 @app.route('/movies', methods=['GET'])
 def records():
     return jsonify(list001)
