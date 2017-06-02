@@ -31,8 +31,8 @@ def hello():
     return jsonify({
         "uri": "/",
         "subresource_uris": {
-            "names": "/testing001",
-            "name": "/testing001/<id>"
+            "names": "/testing002",
+            "name": "/testing002/<id>"
         }
     })
 
