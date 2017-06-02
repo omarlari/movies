@@ -27,7 +27,7 @@ def hello():
     })
 
 @app.route('/test', methods=['GET'])
-def hello():
+def yo():
     return jsonify({
         "uri": "/",
         "subresource_uris": {
