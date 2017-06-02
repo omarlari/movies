@@ -32,7 +32,7 @@ def hello():
         "uri": "/",
         "subresource_uris": {
             "names": "/test",
-            "name": "/test/<id>"
+            "name": "/testing/<id>"
         }
     })
 
