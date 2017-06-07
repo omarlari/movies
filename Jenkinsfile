@@ -23,7 +23,7 @@ node {
         }},
         kubernetes: { node {
         docker.image('omarlari/alpine-kubectl').inside("--volume=/home/core/.kube:/config/.kube"){
-            sh 'kubectl set image deployment/${K8S_DEPLOYMENT} movies=https://223171727691.dkr.ecr.us-west-2.amazonaws.com/movies:${BUILD_NUMBER}'
+            sh 'kubectl set image deployment/${K8S_DEPLOYMENT} movies=https://${ECS_REPO}/movies:${BUILD_NUMBER}'
             }
         }},
         swarm: { node {
