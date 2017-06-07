@@ -34,6 +34,6 @@ node {
 
    stage 'update ECS service'
    docker.image('anigeo/awscli').inside{
-       sh 'awscli aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --task-definition $TASK_DEF --region us-west-2'
+       sh 'aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --task-definition $TASK_DEF --region us-west-2'
    }
 }
