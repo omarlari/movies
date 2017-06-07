@@ -14,7 +14,7 @@ node {
    stage 'update ECS Task Def'
 
    parallel(
-      ecs: {node {
+        ecs: {node {
         docker.image('anigeo/awscli').inside{
             git 'https://github.com/omarlari/movies.git'
             sh 'sed -i s/BUILD/${BUILD_NUMBER}/g tdmovies001.json'
@@ -22,7 +22,9 @@ node {
         }
         }},
         kubernetes: { node {
-            sh "echo deploying to k8s"
+            docker.image(alpine-kubectl).inside("--volume=/home/core/.kube:/config/.kube"){
+            sh 'get pods'
+            }
         }},
         swarm: { node {
             sh "echo deploying to swarm"
@@ -31,7 +33,7 @@ node {
 
 
    stage 'update ECS service'
-   sshagent (credentials: ['ssh']) {
-       sh "ssh -o StrictHostKeyChecking=no -l core 10.99.254.67 docker run awscli aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --task-definition $TASK_DEF --region us-west-2"
+   docker.image('anigeo/awscli').inside{
+       sh 'awscli aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --task-definition $TASK_DEF --region us-west-2'
    }
 }
