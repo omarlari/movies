@@ -22,7 +22,7 @@ node {
         }
         }},
         kubernetes: { node {
-            docker.image('omarlari/alpine-kubectl').inside(--volume=/home/core/.kube:/config/.kube){
+            docker.image('omarlari/alpine-kubectl').inside("--volume=/home/core/.kube:/config/.kube"){
             sh 'get pods'
             }
         }},
