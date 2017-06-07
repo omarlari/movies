@@ -22,8 +22,8 @@ node {
         }
         }},
         kubernetes: { node {
-            docker.image('omarlari/alpine-kubectl').inside("--volume=/home/core/.kube:/config/.kube"){
-            sh 'get nodes'
+        docker.image('omarlari/alpine-kubectl').inside("--volume=/home/core/.kube:/config/.kube"){
+            sh 'kubectl get nodes'
             }
         }},
         swarm: { node {
