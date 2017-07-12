@@ -26,7 +26,7 @@ def hello():
         }
     })
 
-@app.route('/test111', methods=['GET'])
+@app.route('/test888', methods=['GET'])
 def yo():
     return jsonify({
         "uri": "/",
