@@ -15,7 +15,7 @@ node {
 
    parallel(
         ecs: {node {
-        docker.image('anigeo/awscli').inside{
+        docker.image('omarlari/awscli').inside{
             git 'https://github.com/omarlari/movies.git'
             sh 'sed -i s/BUILD/${BUILD_NUMBER}/g tdmovies001.json'
             sh 'aws ecs register-task-definition --cli-input-json file://tdmovies001.json --family ${TASK_DEF} --region us-west-2'
